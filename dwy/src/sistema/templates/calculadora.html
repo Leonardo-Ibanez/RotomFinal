@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<script src="{% static 'core/js/calculadora.js' %}"></script>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+  title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <header>
+
+    <a href="#"><img src="{% static 'img/rotom-wash.gif'%}" style="width:65px;"
+        class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i
+        class="fa fa-bars"></i></span>
+    <div class="w3-container">
+      <h1><b>Cotizar</b></h1>
+      <div class="w3-section w3-bottombar w3-padding-16">
+        <span class="w3-margin-right">Acerca de:</span>
+        <a href="{% url 'home' %}" onclick="w3_close()"><button class="w3-button w3-white">&#128209;
+            Servicios</button></a>
+        <button class="w3-button w3-black w3-hide-small"></i>&#x1F4A6; Cotizar</button>
+        <a href="{% url 'ubicacion' %}" onclick="w3_close()"><button class="w3-button w3-white w3-hide-small"></i>&#x1F4CD;
+            Ubicación</button></a>
+        
+        
+        </header>
+
+
+  <div class="container">
+    <div class="row">
+      <!-- Elementos generados a partir del JSON -->
+      <main id="items" class="col-sm-8 row"></main>
+      <!-- Carrito -->
+      <aside class="col-sm-4">
+        <h2>RotomLavadoramatica</h2>
+        <!-- Elementos del carrito -->
+        <ul id="carrito" class="list-group"></ul>
+        <hr>
+        <!-- Precio total -->
+        <p class="text-right">Total: </span>&dollar;<span id="total"></p>
+        <a href="pago.html" class="btn btn-primary">Pagar</a>
+        <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+
+
+      </aside>
+    </div>
+  </div>
+
+
+  {% endblock %}
+</div>

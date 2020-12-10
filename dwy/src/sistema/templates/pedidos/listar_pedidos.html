@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!-- {% block javascript %}
+    <script src="{% static 'confirmacion.js' %}"></script>
+{% endblock %} -->
+
+{% block contenido %}
+
+
+<div class="w3-main" style="margin-left:300px"> 
+    
+<table class="table table-striped" >
+    <tr>
+        <th>articulo</th>
+        <th>descripcion</th>
+        <th>precio</th>
+        <th>cliente</th>
+        <th>Opciones</th>
+    </tr>
+    {% for p in pedidos %}
+
+    <tr>
+        <td>{{p.articulo}}</td>
+        <td>{{p.descripcion}}</td>
+        <td>{{p.precio}}</td>
+        <td>{{p.cliente}}</td>
+        <td>
+            <a href="{% url 'modificar_pedidos.html' p.id %}">Modificar</a>
+            <!-- <a href="#" onclick="confirmarEliminacion({{ p.id }})">Eliminar</a> -->
+            <a href="{% url 'eliminar_pedidos.html' p.id %}">Eliminar</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+{% endblock %}
+</div>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+
+<div class="w3-main" style="margin-left:300px">
+
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            
+                {{ form.as_table }}
+         
+            <tr>
+                <th>nombre</th>
+                <th>rut</th>
+                <th>email</th>
+                <th>direccion</th>
+                <th>telefono</th>
+                <th>Opciones</th>
+            </tr>
+            {% for p in pedidos %}
+
+            <tr>
+                <td>{{p.nombre}}</td>
+                <td>{{p.rut}}</td>
+                <td>{{p.email}}</td>
+                <td>{{p.direccion}}</td>
+                <td>{{p.telefono}}</td>
+                <td>
+                    <a href= "{% url 'modificar_cliente' p.id %}">Modificar</a>
+                </td>
+
+                {% endfor %}
+            </tr>
+
+
+        </table>
+       
+
+    </form>
+
+    {% endblock %}
+</div>
